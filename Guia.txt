@@ -1,0 +1,10 @@
+Para ejecutar el servidor api
+cd backend, npm run server
+
+Para ejecutar la app React
+npm install, npm start
+
+git config --global credential.useHttpPath true
+
+git config --global -e
+
