@@ -1,0 +1,23 @@
+{
+  "name": "exampleapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "json-server --watch database.json",
+    "remote": "json-server http://jsonplaceholder.typicode.com/db"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "json-server": "^1.0.0-alpha.23",
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.3.2",
+    "util": "^0.12.5"
+  }
+}

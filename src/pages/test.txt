@@ -1,0 +1,145 @@
+// Componente para mostrar la lista de elementos y manejar operaciones CRUD
+import React, { useState, useEffect } from 'react';
+
+const CrudComponent = () => {
+  const [items, setItems] = useState([]);
+  const [formData, setFormData] = useState({
+    name: '',
+    title: '',
+    story:'',
+    type:'',
+    range:'',
+    movementSpeed:'',
+    Enchantment:'',
+    //image: null,
+  });
+
+  // Función para obtener la lista de elementos desde el servidor
+  useEffect(() => {
+    fetch('/wofdata')
+      .then(response => response.json())
+      .then(data => setItems(data))
+      .catch(error => console.error('Error fetching items:', error));
+  }, []);
+
+  // Función para manejar cambios en el formulario
+  const handleChange = event => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  // Función para enviar el formulario y crear un nuevo elemento
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    fetch('/wofdata', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Item created successfully:', data);
+        // Aquí podrías actualizar el estado de tu aplicación u otra lógica necesaria
+      })
+      .catch(error => {
+        console.error('There was an error creating the item:', error);
+      });
+  };
+
+  // Función para eliminar un elemento
+  const deleteItem = id => {
+    fetch(`/wofdata/${id}`, {
+      method: 'DELETE',
+    })
+      .then(() => setItems(items.filter(item => item._id !== id)))
+      .catch(error => console.error('Error deleting item:', error));
+  };
+
+  return (
+    <div>
+      <h2>Create Item</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          placeholder="Nombre"
+        />
+        <input
+          type="text"
+          name="title"
+          value={formData.title}
+          onChange={handleChange}
+          placeholder="Titulo"
+        />
+        <input
+          type="text"
+          name="story"
+          value={formData.story}
+          onChange={handleChange}
+          placeholder="Titulo"
+        />
+        <input
+          type="text"
+          name="type"
+          value={formData.type}
+          onChange={handleChange}
+          placeholder="Titulo"
+        />
+        <input
+          type="text"
+          name="range"
+          value={formData.range}
+          onChange={handleChange}
+          placeholder="Titulo"
+        />
+        <input
+          type="text"
+          name="movementSpeed"
+          value={formData.movementSpeed}
+          onChange={handleChange}
+          placeholder="Titulo"
+        />
+        <input
+          type="text"
+          name="Enchantment"
+          value={formData.Enchantment}
+          onChange={handleChange}
+          placeholder="Titulo"
+        />
+      
+        <button type="submit">Agregar</button>
+      </form>
+
+
+      <h2>Lista de elementos</h2>
+      <ul>
+        {items.map(item => (
+          <li key={item._id}>
+            <p>{item.name}</p>
+            <p>{item.title}</p>
+            <p>{item.story}</p>
+            <p>{item.type}</p>
+            <p>{item.range}</p>
+            <p>{item.movementSpeed}</p>
+            <p>{item.Enchantment}</p>
+            <button onClick={() => deleteItem(item._id)}>Eliminar</button>
+          </li>
+        ))}
+      </ul>
+
+
+    </div>
+  );
+};
+
+export default CrudComponent;

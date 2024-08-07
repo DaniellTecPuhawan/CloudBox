@@ -1,0 +1,48 @@
+[
+  {
+  "name": "Master Cat",
+  "title": "Wandering Swordsman in Boots",
+  "story": "Puss in Boots",
+  "type": "Fighter",
+  "range": "Normal",
+  "movementSpeed": "Normal",
+  "Enchantment": "Relentless Lightning, Prudent Beam"
+},
+{
+  "name": "Wolfgang",
+  "title": "Silent Hunter Sheep Who Mistrusts Others",
+  "story": "Red Riding Hood, Three Little Pigs, The Boy Who Cry Wolf",
+  "type": "Assasin",
+  "range": "Very Short",
+  "movementSpeed": "Fast",
+  "Enchantment": "Agression"
+},
+{
+  "name": "Jack O",
+  "title": "A Con Artist No One Safe From",
+  "story": "Stingy Jack",
+  "type": "Fighter",
+  "range": "Long",
+  "movementSpeed": "Normal",
+  "Enchantment": "Relentless Lightning"
+},
+{
+  "name": "Javert",
+  "title": "Investigator Who Lost Faith",
+  "story": "Les Misérables",
+  "type": "Assassin",
+  "range": "Short",
+  "movementSpeed": "Very Fast",
+  "Enchantment": "Relentless Lightning, Super Jump"
+},
+{
+  "name": "Rambert",
+  "title": "Silent Hunter Sheep Who Mistrusts Others",
+  "story": "The Boy Who Cried Wolf",
+  "type": "Marksman",
+  "range": "Long",
+  "movementSpeed": "Normal",
+  "Enchantment": "Super Jump, Strike Barrier"
+}
+
+]

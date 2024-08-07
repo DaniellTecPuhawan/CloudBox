@@ -1,0 +1,79 @@
+EXAM
+
+Part1
+
+db.mongoTest.insert(
+
+{
+  _id: ObjectId('6667f966360a05cc072162a5'),
+  name: 'Patient 1',
+  age: 31,
+  history: [
+    {
+      disease: 'cold',
+      treatment: 'False'
+    }
+  ]
+}
+{
+  _id: ObjectId('6667f979360a05cc072162a6'),
+  name: 'Patient 2',
+  age: 40,
+  history: [
+    {
+      disease: 'fever',
+      treatment: 'True'
+    }
+  ]
+}
+{
+  _id: ObjectId('6667f98a360a05cc072162a7'),
+  name: 'Patient 3',
+  age: 22,
+  history: [
+    {
+      disease: 'headache',
+      treatment: 'True'
+    }
+  ]
+}
+{
+  _id: ObjectId('6667f99c360a05cc072162a8'),
+  name: 'Patient 4',
+  age: 40,
+  history: [
+    {
+      disease: 'cold',
+      treatment: 'True'
+    }
+  ]
+}
+{
+  _id: ObjectId('6667f9b3360a05cc072162a9'),
+  name: 'Patient 5',
+  age: 22,
+  history: [
+    {
+      disease: 'fever',
+      treatment: 'False'
+    }
+  ]
+}
+
+)
+
+db.mongoTest.find().forEach((patientData => {printjson(patiendData)}))
+
+Part2
+
+db.mongoTest.updateOne({name:"Patient 3"}, {$set:{age:45}})
+db.mongoTest.updateOne({name:"Patient 3"}, {$set:{age:45, disease:"headache"}})
+db.mongoTest.find().forEach((patientData => {printjson(patiendData)}))
+
+Part3
+db.mongoTest.find({age:{$gt:30}})
+
+Part4
+
+db.mongoTest.deleteMany({"history.disease":"cold"})
+db.mongoTest.find().forEach((mongoTest => {printjson(mongoTest)}))

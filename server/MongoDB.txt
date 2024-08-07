@@ -1,0 +1,270 @@
+Create
+insertOne({})
+db.mongoTest.insertOne({name: "Patient 6", age: 31, history:[{ disease: "cold", treatment: "False"  }]})
+insertMany([{}, {}, {}])
+
+Read
+db.{database}.find()
+db.{database}.find().pretty()
+findOne({value, options})
+db.database.findOne({name: "test"})
+db.mongoTest.find({age:{$gt:30}}) Greter than
+
+toArray, print as array
+db.database.find().toArray()
+
+forEach, print as jsondb.
+db.smashLegends.find().forEach((smashData) => {printjson(smashData)})
+
+smashLegends> db.smashLegends.find({}, {name:1}).pretty() Shows only the name
+smashLegends> db.smashLegends.find({}, {_id:0, name:1, Enchantment:1}).pretty() Shows only the name, Enchantment
+
+Update 
+updateOne({value, options})
+db.database.updateOne({name: "test"}, {$set: {type: "testing"}}) Adds new value
+db.smashLegends.updateOne({_id: ObjectId('6666c57dcf56ee871f8093ac')}, {$set: {name: "tested"}})
+db.smashLegends.updateOne({_id: ObjectId('6620d1b834f2161e4d9a8017')}, {$set: {skills: ["hunting", "marksman"]}}) Sets an array in a document > list of data/string
+
+updateMany({value, options}) Ads a value on every data
+db.smashLegends.updateMany({}, {$set: {Ranked:"Yes"}})
+
+replaceOne({value, options}) Replace data
+db.smashLegends.replaceOne({name:"test2"}, {name:"test", state:"to test"})
+
+Delete 
+deleteOne({name: "test"})
+deleteMany{value, options}
+db.mongoTest.deleteMany({"history.disease": "headache"})
+
+Can hold multiple collections > can hold multiple documents
+
+Document structure
+Each document needs a unique ID, gets one by default
+
+CRUD, CREATE, READ, UPDATE, Delete
+
+Retrieving data
+Using filters and operators
+
+
+Document Schemas, Data types
+Don't have to use the same Schema
+Mix structures of schema, schema-less(?)
+
+[
+  {
+  "name": "Master Cat",
+  "title": "Wandering Swordsman in Boots",
+},
+{
+  "name": "Wolfgang",
+  "title": "Silent Hunter Sheep Who Mistrusts Others",
+  "Enchantment": "Aggression"
+},
+{
+  "name": "Jack O",
+  "title": "A Con Artist No One Safe From",
+  "Enchantment": "Relentless Lightning"
+}
+
+]
+
+Is not necessary the same fields but  it must. It depends of the structure
+Modelling relations
+Schema validation
+
+Data types
+
+Text > "Value"
+Boolean > True/False
+
+Number:
+- int > 35
+- NumberLong(int64) > 1000000000
+- NumberDecimal> 15.95
+- ObjectId > "aaaaaa", it generates automatically by mongoDB, unique value
+- ISODate > ("YY-MM-DD")
+- Timestamp(19495911), is unique too
+- Embedded Document > {"a": {a:"a"}}
+- Array > {a: ["a", "a"]}
+
+db.stats()
+
+
+
+Data schemas & Data Modelling
+- Define the fields  you'll need and relate
+- Defines your required collections
+- Define the queries you'll need
+- Optimize an easy fetching and writing
+
+Relations - Options
+
+- Nested/Embedded Documents >
+{
+    _id: ObjectId('6667f9b3360a05cc072162a9'),
+    name: 'Patient 5',
+    age: 22,
+    history: [ { disease: 'fever', treatment: 'False' } ]
+  } 
+
+- References
+
+  Customer
+
+  {
+
+    userName: "Beck",
+    favBooks: [ 'id1', 'id2' ]
+
+  }
+
+ Books
+
+{
+
+  _id1: 'id1',
+  name: 'Beacon Pines'
+
+}
+- One to One relations
+
+db.smashLegends.findOne().name
+var slid = db.smashLegends.findOne().name
+
+{
+  _id: ObjectId("user1"),
+  username: "user1",
+  email: "user1@example.com",
+  profileId: ObjectId("profile1")
+}
+
+// profiles collection
+{
+  _id: ObjectId("profile1"),
+  fullName: "User One",
+  age: 30
+}
+
+- One to Many relations
+
+// posts collection
+{
+  _id: ObjectId("post1"),
+  title: "Post 1",
+  content: "Content of post 1",
+  comments: [ ObjectId("comment1"), ObjectId("comment2") ]
+}
+
+// comments collection
+{
+  _id: ObjectId("comment1"),
+  postId: ObjectId("post1"),
+  text: "Comment 1 on Post 1"
+},
+{
+  _id: ObjectId("comment2"),
+  postId: ObjectId("post1"),
+  text: "Comment 2 on Post 1"
+}
+
+
+- Many to Many
+
+// students collection
+{
+  _id: ObjectId("student1"),
+  name: "Student 1",
+  courses: [ ObjectId("course1"), ObjectId("course2") ]
+}
+
+// courses collection
+{
+  _id: ObjectId("course1"),
+  title: "Course 1",
+  students: [ ObjectId("student1"), ObjectId("student2") ]
+},
+{
+  _id: ObjectId("course2"),
+  title: "Course 2",
+  students: [ ObjectId("student1"), ObjectId("student3") ]
+}
+
+- Summarize
+
+  Nested/Embedded Documents:
+
+  Group data logically
+  Not overlapping with other data
+  Avoid super-deep nesting
+
+  References
+
+  Split data across collections
+  Shared data
+  Overcome nesting by creating documents
+
+
+  $lookup() for merging
+
+  db.orders.aggregate([
+  {
+    $lookup: {
+      from: "products", // Colección para unir
+      localField: "products", // Campo local que contiene las referencias a los productos
+      foreignField: "_id", // Campo en la colección de productos para comparar con el campo local
+      as: "productDetails" // Alias para el nuevo campo que contendrá los detalles del producto
+    }
+  }
+]);
+- Exam
+
+ blog> db.users.insertMany([{name:"Luka"}, {name:"Rolo"}, {name:"Beck"}])
+ db.users.find().pretty()
+
+ blog> db.post.insertOne({title:"First Chapter", text:"Normal isn't What It Used To Be", author: ObjectId('666981487b7d6c67ff3ecb19'), charms: [{options: " Junk, Ponder, Chill, and Hide  "}] })
+ db.post.find().pretty()
+
+ db.post.findOne() > 
+
+ {
+  _id: ObjectId('666983b67b7d6c67ff3ecb1c'),
+  title: 'First Chapter',
+  text: "Normal isn't What It Used To Be",
+  author: ObjectId('666981487b7d6c67ff3ecb19'),
+  charms: [ { options: ' Junk, Ponder, Chill, and Hide  ' } ]
+}
+
+
+- Schema validation
+
+  - ValidationLevel
+
+    Strict > All inserts and updates
+    Moderate > All inserts and updates to correct documents
+
+- Validation Action
+
+  Error > Throw error and deny any insert/update
+  Warn > Log warning but proceed
+
+
+Adding collection document validation
+
+- db.createCollection("name")
+
+db.createCollection("posts", {validatior: { $jsonSchema: { bsonType: "object", required: [ "title", "text", "creator", "comments"  ], properties  }  }});
+
+db.createCollection('posts', {
+
+  validator:{
+
+    $jsonSchema:{
+
+      bsonType: 'object',
+      required: [ 'title', 'text', 'creator', 'comments'  ],
+      properties
+
+      }
+    }
+  });

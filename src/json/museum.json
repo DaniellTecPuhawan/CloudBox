@@ -1,0 +1,57 @@
+[
+    {
+      "title": "Museo del Prado",
+      "description": "Amplia representación de obras Velázquez, Goya, Tiziano y Rubens en este museo con horario de entrada gratis y guías del museo para descargar gratis",
+      "location":"C. de Ruiz de Alarcón, 23, 28014 Madrid",
+      "image":"https://i.ibb.co/rHLyFDZ/prado.jpg"
+    },
+    {
+      "title": "Museo Reina Sofía",
+      "description": "El Museo Nacional Centro de Arte Reina Sofía centrado en arte contemporaneo con obras de grandes artistas españoles del siglo XX",
+      "location":"C. de Sta. Isabel, 52, 28012 Madrid",
+      "image":
+        "https://i.ibb.co/7NZ7Syj/reina.jpg"
+    },
+    {
+      "title": "Museo Nacional de Artes Decorativas",
+      "description": "Exposición de elementos de ornamentación de todo tipo: mobiliario, cristal, cerámica, alfombras, tapices, juguetes, etc. pertenecientes a los siglos XV al XIX, y objetos de las dinastías Ming y Qing.",
+      "location": "P.º del Prado, 8, 28014 Madrid",
+      "image":
+        "https://i.ibb.co/4dxqngQ/decor.jpg"
+    },
+    {
+      "title": "Museo Thyssen Bornemisza",
+      "description": "Exposición de pinturas que van desde los primitivos flamencos o italianos hasta el siglo XX, destacando retratos del Renacimiento, Impresionismo, Expresionismo y del siglo XX",
+      "location": "Manuel Bustamante",
+      "image": "https://i.ibb.co/wJK1FYR/tyssen.jpg"
+    },
+    {
+      "title": "Museo Sorolla",
+      "description": "El Museo Sorolla aspira a promover al máximo el conocimiento y disfrute del legado de Joaquín Sorolla por todo tipo de públicos, en el convencimiento de que este legado, y en particular las obras de Joaquín Sorolla, puede ofrecerles una experiencia emocional y estética positiva y enriquecedora, estimular sus sentidos, avivar en ellos la conciencia del sentido de la vista como instrumento de conocimiento y animarlos a utilizar sus propias capacidades creativas.",
+      "location": "P.º del Gral. Martínez Campos, 37, 28010 Madrid",
+      "image":
+        "https://i.ibb.co/gztH7kh/sorrolla.jpg"
+    },
+    {
+      "title": "Museo arqueológico nacional",
+      "description": "El Museo Arqueológico Nacional es una institución pública cuyo objetivo es ofrecer a todos los ciudadanos una interpretación rigurosa, atractiva, interesante y crítica del significado de los objetos que pertenecieron a los distintos pueblos de la actual España y del ámbito mediterráneo, desde la Antigüedad hasta épocas recientes, de manera que el conocimiento",
+      "location": "Calle de Serrano, 13, 28001 Madrid",
+      "image":
+        "https://i.ibb.co/nQXMFrK/arquer.jpg"
+    },
+    {
+      "title": "Museo Cerralbo",
+      "description": "Es uno de los museos más importantes de Madrid, aunque también de los más desconocidos. Está situado en lo que fue la casa-palacio del XVII Marqués de Cerralbo y su visita traslada al visitante a la forma de vida de una familia aristocrática de finales del siglo XIX.",
+      "location": "C. de Ventura Rodríguez, 17, 28008 Madrid",
+      "image":
+        "https://i.ibb.co/R32VK8v/cerral.jpg"
+    },
+    {
+      "title": "Museo Lázaro Galdiano",
+      "description": "El Museo Lázaro Galdiano, en Madrid, es un museo estatal de origen privado, que alberga una amplia y heterogénea colección, formada con interés enciclopédico hacia todas las artes y técnicas.",
+      "location": "C. Serrano, 122, 28006 Madrid",
+      "image":
+        "https://i.ibb.co/WkBqcGC/lazaro.jpg"
+    }
+  ]
+

@@ -1,0 +1,25 @@
+show dbs
+
+use {database}
+
+db.{database}.find()
+
+db.{database}.insertOne(
+
+    {
+        "name" : "Daniell",
+        "age" : 24 
+    }
+
+)
+db.{database}.find()
+
+db.{database}.updateOne()
+db.{database}.update(
+    {"_id : ObjectId ({exampleID}),
+    ($set : {Field} : {Value})
+})
+db.{database}.find()
+
+db.{database}.deleteOne()
+
